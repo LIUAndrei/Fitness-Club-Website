@@ -8,44 +8,43 @@
 </head>
 <body>
     <!-- header goes below-->
-    <header class="header">
-       <div class="header__gridder h-gridder narrow-down">
-            <div class="h-gridder__left header-leftbox">
-                <img class="header-leftbox__logo" src="img/logo.svg" alt="Supergym" width="89" height="20">
-                <h1 class="header-leftbox__topheader">омск</h1>
-                <h2 class="header-leftbox__bottomheader">Фитнес центр</h2>
-                <p class="header-leftbox__motto">Тренажёрный зал
-                    Групповые занятия
-                    Кардио-зона </p>
-                <a class="header-leftbox__link" href="#">Купить абонемент</a>
-            </div>
-            <div class="h-gridder__gap"></div>
-            <div class="h-gridder__center header-centerbox"></div>
-            <div class="h-gridder__right header-rightbox">
-                <nav class="header-rightbox__navigation navigation">
-                    <a class="navigation__phone"  href="tel:8-800-555-55-55">8-800-555-55-55</a>
-                    <div class="navigation__social">
-                        <a href="#">FB</a>
-                        <a href="#">VK</a>
-                        <a href="#">IG</a>
-                    </div>
-                </nav>
-            </div>
-       </div>
+    <header class="header width-adjust">
+        <div class="header__left-col left-col">
+            <img class="left-col__logo" src="img/logo.svg" alt="SuperGYM Logo" width="89" height="20">
+            <span class="left-con__omsk">Омск</span><h1 class="left-col__header">Фитнес центр</h1>
+            <p class="left-col__keys" hidden>Тренажёрный зал
+                Групповые занятия
+                Кардио-зона </p>
+            <a class="left-col__purchase-button" href="#">Купить абонемент</a>
+        </div>
+        <div class="header__center-con">
+            <img src="img/header_superman_portrait.png" alt="Стань супермэном" width="500" height="556">
+        </div>
+        <div class="header__right-con right-con">
+            <a class="right-con__phone" href="tel:8-800-555-55-55">8-800-555-55-55</a>
+            <nav class="right-con__social">
+                <a href="#">FB</a>
+                <a href="#">VK</a>
+                <a href="#">IG</a>
+            </nav>
+        </div>
     </header>
     <main>
     <!-- тренажерный зал section is below -->
-    <section class="room">
-        <div class="room__gridder r-gridder">
-            <div class="r-gridder__gap"></div>
-            <div class="r-gridder__text">2</div>
-            <div class="r-gridder__gap">3</div>
-            <div class="r-gridder__picture">4</div>
-
-
+    <section class="room width-adjust">
+        <div class="room__text-col">
+            <h2>тренажерный зал</h2>
+            <strong>Просторный зал площадью 900 кв/м</strong>
+            <p>Supergym – самый большой фитнес центр за Уралом и идеальное место для укрепления тела и здоровья. Тренажерный зал оснащен всем необходимым современным оборудованием для всех спортсменов.
+                В зале расположены отдельная зона для Crossfit и кардио-зона с 40 тренажерами. Также в фитнес центре есть несколько оборудованных залов для различных видов групповых занятий. </p>  
         </div>
-
-    </section>    
+        <div class="room__pic-col">
+            <img src="img/training_room.png" alt="Тренажерный зал" width="660" height="401"> 
+        </div>
+        <div class="room__video-thumb-col">
+            <img src="img/training_room.png" alt="Видеообзор зала" width="364" height="228">
+        </div>
+    </section>
 
     <!-- абонементы section is below -->
     <section class="subscription width-adjust">
