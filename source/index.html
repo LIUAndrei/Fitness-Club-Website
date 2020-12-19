@@ -46,24 +46,80 @@
             </div>
             <div class="r-gridder__gap"></div>
             <div class="r-gridder__picture"></div>
-
+            <div class="r-gridder__video r-video-box">
+                <div class="r-video-box__video video">
+                    <a class="video__link" href="#"><img src="img/video_buton.png" alt="Play video"></a>
+                </div>
+            </div>
 
         </div>
-        <div class="room__video r-video-box">
-            <img class="r-video-box__thumbnail" src="img/video_thumb.png" alt="Our Video" width="364" height="228">
-        </div>
+
     </section>    
 
     <!-- абонементы section is below -->
-    <section class="subscription width-adjust">
-        <h2>абонементы</h2>
-        </section>
+    <section class="subscription">
+        <h2 class="subscription__header">абонементы</h2>
+        <div class="subscription__gridder scription-list">
+            <div class="scription-list__duration duration">
+                <ul class="duration__list d-list">
+                    <li><a data-number="0" class="d-list__link d-list__link_active" href="#">1 месяц</a></li>
+                    <li><a data-number="1" class="d-list__link" href="#">6 месяцев</a></li>
+                    <li><a data-number="2" class="d-list__link" href="#">12 месяцев</a></li>
+                </ul>
+            </div>
+            <div class="scription-list__trainer scription-list__item item-features">
+                <h4 class="item-features__header">С тренером</h4>
+                <strong class="item-features__type">12 занятий</strong>
+                <p class="item-features__price-background">5000</p>
+                <p class="item-features__price">5000  ₽</p>
+                <a class="item-features__button" href="#">купить абонемент</a>
+            </div>
+            <div class="scription-list__midday scription-list__item item-features">
+                <h4 class="item-features__header">Дневной</h4>
+                <strong class="item-features__type">с 8:00 до 17:00</strong>
+                <p class="item-features__price-background ">1700</p>
+                <p class="item-features__price">1700  ₽</p>
+                <a class="item-features__button" href="#">купить абонемент</a>
+            </div>
+            <div class="scription-list__fullday scription-list__item item-features">
+                <h4 class="item-features__header">Полный день</h4>
+                <strong class="item-features__type">с 8:00 до 22:00</strong>
+                <p class="item-features__price-background">2700</p>
+                <p class="item-features__price">2700  ₽</p>
+                <a class="item-features__button" href="#">купить абонемент</a>
+            </div>
+        </div>
+    </section>
 
     <!-- super games section is below -->
-    <section class="super-games width-adjust">
-        <h3>super games</h3>
-        <div class="super-games__text-col"></div>
-        <div class="super-games__pic-col"></div>
+    <section class="super-games">
+        <h2 class="super-games__header" hidden>super games</h2>
+        <div class="super-games__gridder super-games-box">
+            <div class="super-games-box__left games-textbox">
+                <div class="games-textbox__top">
+                    
+                        <h3 class="games-textbox__header">SUPER GAMES</h3>
+                    
+                    <div class="games-textbox__keys keys">
+                        <div class="keys__top k-top">
+                            <p class="k-top__date">Дата</p>
+                            <b>7</b>
+                            <p>Марта 2019</p>
+                        </div>
+                        <div class="keys__bottom k-bottom">
+                            <p class="k-bottom__timeis">Время</p>
+                            <p class="k-bottom__actual">12:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="games-textbox__bottom games-buttonbox">
+                    <p class="games-buttonbox__text">Ежегодные соревнования по CrossFit</p>
+                    <a class="games-buttonbox__button" href="#">заполнить заявку</a>
+                </div>
+            </div>
+            <div class="super-games-box__right"></div>
+        </div>
 
     </section>
 
@@ -143,5 +199,6 @@
             <li><a href="#">FB</a></li>
         </ul>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
