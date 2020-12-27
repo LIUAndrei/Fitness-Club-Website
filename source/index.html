@@ -103,8 +103,10 @@
                     <div class="games-textbox__keys keys">
                         <div class="keys__top k-top">
                             <p class="k-top__date">Дата</p>
-                            <b>7</b>
-                            <p>Марта 2019</p>
+                            <div class="k-top__dmy daymonthyear"> 
+                                <b class="daymonthyear__d">7</b>
+                                <p class="daymonthyear__my">Марта 2019</p> 
+                            </div>
                         </div>
                         <div class="keys__bottom k-bottom">
                             <p class="k-bottom__timeis">Время</p>
@@ -124,7 +126,21 @@
     </section>
 
     <!-- тренеры section is below-->
-    <section class="trainer-list width-adjust">тренеры</section>
+    <section class="trainer-list">
+            <h2 class="trainer-list__header">Тренеры</h2>
+            <div class="trainer-list__carousel carousel">
+                <ul class="carousel__list carousel-track">
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li>
+                    <li class="carousel-track__unit"></li> 
+                </ul>
+            </div>
+    </section>
 
     <!-- наши преимущества section is below -->
     <section class="advantages width-adjust">
@@ -158,7 +174,14 @@
     </section>
 
     <!-- акции section is below -->
-    <section class="promotions width-adjust">акции</section>
+    <section class="promotions">
+        <h2 class="promotions__header">Акции</h2>
+        <div class="promotions__gridder promobox">
+            <div class="promobox__left"></div>
+            <div class="promobox__right"></div>
+        </div>
+
+    </section>
 
     <!-- отзывы section is below -->
     <section class="feedback">
