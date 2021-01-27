@@ -41,73 +41,246 @@ subscriptionDurationLinks.forEach(function(link) {
 
 
 /* логика раздела тренеры */
+
+    /* функции построения inner html */
+
+    
+    let buildThisHtmlArry = [
+        {
+            tag: 'li',
+            classArry: [ 'trainers__unit', '\"trainers__unit--\"+i', 'trainers-unit']
+        },
+        {
+
+        }
+    ]
+
+
+
+    const htmlBuilder = function(htmObj) {
+
+        let newElement = document.createElement(htmObj.tag);
+        for (var k = 0; k < htmObj.classArry.length; k++) {
+            newElement.classList.add(htmObj.classArry[k]);
+        }
+        return newElement;
+    }
+
+
+    /* список тренеров DataBase */ 
 const trainersList = [
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Анна Павлова',
         sport: 'Растяжка',
-        mention1: 'Может достать носом до локтя',
-        mention2: 'Чемпион по стоянию в мостике',
-        mention3: 'Опыт — 98 лет'
+        mention: [ 'Может достать носом до локтя',
+         'Чемпион по стоянию в мостике',
+         'Опыт — 98 лет' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Алексей Лавров',
         sport: 'Powerlift',
-        mention1: 'Certified level 80 paladin',
-        mention2: 'По вечерам подрабатывает домкратом в автосервисе',
-        mention3: 'Опыт — 4 года'
+        mention: [ 'Certified level 80 paladin',
+         'По вечерам подрабатывает домкратом в автосервисе',
+         'Опыт — 4 года' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Александр Пашков',
         sport: 'CrossFit',
-        mention1: 'Certified Level 3 Trainer',
-        mention2: 'Победитель чемпионата России по CrossFit',
-        mention3: 'Опыт — 6 лет'
+        mention: [ 'Certified Level 3 Trainer',
+         'Победитель чемпионата России по CrossFit',
+         'Опыт — 6 лет' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Мария Кетова',
         sport: 'Yoga',
-        mention1: 'Может встать в халасану за рулем',
-        mention2: 'Будущий чемпион Барановичей по йоге',
-        mention3: 'Опыт — 10 лет'
+        mention: [ 'Может встать в халасану за рулем',
+         'Будущий чемпион Барановичей по йоге',
+         'Опыт — 10 лет' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Homer Simpson',
         sport: 'JavaScript',
-        mention1: 'Может кодить сайты на Коболе',
-        mention2: 'Помнит бумажные журналы Хакер',
-        mention3: 'Опыт JavaScript - 400 лет'
+        mention: [ 'Может кодить сайты на Коболе',
+         'Помнит бумажные журналы Хакер',
+         'Опыт JavaScript - 400 лет' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Peter Griffin',
         sport: 'Competitive donut eating',
-        mention1: 'Может съесть донут каждую секунду',
-        mention2: 'Умеет попадать в невероятно глупые ситуации',
-        mention3: 'Опыт — 21 год'
+        mention: [ 'Может съесть донут каждую секунду',
+         'Умеет попадать в невероятно глупые ситуации',
+         'Опыт — 21 год' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Marjorie Simpson',
         sport: 'Stars in the best cartoon ever',
-        mention1: 'Может дотянуться волосами до троллейбусных проводов',
-        mention2: 'Здесь мог бы быть другой пункт, но фантазия кончилась',
-        mention3: 'Опыт — 30 лет'
+        mention: [ 'Может дотянуться волосами до троллейбусных проводов',
+         'Здесь мог бы быть другой пункт, но фантазия кончилась',
+         'Опыт — 30 лет' ]
     },
     {
-        pictureUrl: '../img/trainer_.webp',
+        pictureUrl: 'img/trainer_',
         nameis: 'Louis Griffin',
         sport: 'The squeakiest voice on TV',
-        mention1: 'Вряд-ли кодит на Бейсике',
-        mention2: 'И вряд-ли кодит на Макромедиа Флэш',
-        mention3: 'Опыт — 10^7 лет'
+        mention: ['Вряд-ли кодит на Бейсике','И вряд-ли кодит на Макромедиа Флэш', 'Опыт — 10^7 лет' ]
     }
 ]
 
+const carouselList = document.querySelector('.slider__list');
+let slideWidth = 300;
+
+const createTrainerSlides = function(arryOfTrainers) {
+    
+    for (let i = 0; i < arryOfTrainers.length; i++) {
+
+        let newTrainerCard = htmlBuilder(buildThisHtmlArry[0]);
+        newTrainerCard.style.left = slideWidth*i + 'px';
+        newTrainerCard.style.backgroundImage = 'url(' + arryOfTrainers[i].pictureUrl + (i+1) + '.webp)';
+        carouselList.appendChild(newTrainerCard);
+
+        let trainersOverlay = document.createElement('div');
+        trainersOverlay.classList.add('trainers-unit__overlay');
+        trainersOverlay.classList.add('trainers-unit__overlay--' + i);
+        trainersOverlay.classList.add('trainers-description');
+        
+        newTrainerCard.appendChild(trainersOverlay);
+
+        let trainersName = document.createElement('h4');
+        trainersName.classList.add('trainers-description__name');
+        trainersName.textContent = arryOfTrainers[i].nameis;
+
+        trainersOverlay.appendChild(trainersName);
+
+        let trainersSport = document.createElement('span');
+        trainersSport.classList.add('trainers-description__sport');
+        trainersSport.textContent = arryOfTrainers[i].sport;
+
+        trainersOverlay.appendChild(trainersSport);
+
+        let trainersMentionList = document.createElement('ul');
+        trainersMentionList.classList.add('trainers-description__list');
+        trainersMentionList.classList.add('description-list');
+
+            for (var j = 0; j < 3; j++) {
+                let trainerMentionPiece = document.createElement('li');
+                trainerMentionPiece.classList.add('description-list__piece');
+                trainerMentionPiece.classList.add('description-list__piece' + j);
+                trainerMentionPiece.textContent = arryOfTrainers[i].mention[j];
+                trainersMentionList.appendChild(trainerMentionPiece);
+            }
+
+        trainersOverlay.appendChild(trainersMentionList);
+
+    }
+}
+
+ createTrainerSlides(trainersList);
+
+console.log(carouselList);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+        /* слайдер */
+
+let currentSlide = 0;
+
+const moveToSlide = function(length, direction) {  /* set - for left and  ' ' for right */
+    if (direction) {
+        currentSlide++;
+    } else {
+        currentSlide--;
+    }
+    length = length*currentSlide;
+    carouselList.style.transform = 'translateX(-' + length + 'px)';
+
+}
+
+
+
+
+const buttonLeft = document.querySelector('.arrow__button--left');
+const buttonRight = document.querySelector('.arrow__button--right');
+
+const showHideButtons = function() {
+    if (currentSlide === 0) {
+        buttonLeft.classList.add('arrow__button--invisible');
+    } else if(currentSlide === 4) {
+        buttonRight.classList.add('arrow__button--invisible');
+    } else {
+        buttonRight.classList.remove('arrow__button--invisible');
+        buttonLeft.classList.remove('arrow__button--invisible');
+    }
+}
+
+buttonLeft.addEventListener('click', function() {
+    moveToSlide(slideWidth, false);
+    showHideButtons();
+})
+
+
+buttonRight.addEventListener('click', function() {
+    moveToSlide(slideWidth, true);
+    showHideButtons();
+})
+
+
+// логика раздела отзывы
+
+const buttonLeftFeedback = document.querySelector('#feedback-btn-left');
+const buttonRightFeedback = document.querySelector('#feedback-btn-right');
+const carouselListFeedback = document.querySelector('#feedback-slider');
+let currentFeedback = 0;
+const slideWidthFeedback = 560;
+
+const showHideButtonsFeedback = function() {
+    if (currentFeedback === 0) {
+        buttonLeftFeedback.classList.add('arrow__button--invisible');
+    } else if(currentFeedback === 2) {
+        buttonRightFeedback.classList.add('arrow__button--invisible');
+    } else {
+        buttonRightFeedback.classList.remove('arrow__button--invisible');
+        buttonLeftFeedback.classList.remove('arrow__button--invisible');
+    }
+}
+
+const moveToFeedback = function(length, direction) {  /* set - for left and  ' ' for right */
+    if (direction) {
+        currentFeedback++;
+    } else {
+        currentFeedback--;
+    }
+    length = length*currentFeedback;
+    carouselListFeedback.style.transform = 'translateX(-' + length + 'px)';
+
+}
+
+
+
+buttonLeftFeedback.addEventListener('click', function() {
+    moveToFeedback(slideWidthFeedback, false);
+    showHideButtonsFeedback();
+})
+
+
+buttonRightFeedback.addEventListener('click', function() {
+    moveToFeedback(slideWidthFeedback,true);
+    showHideButtonsFeedback();
+})
